@@ -14,7 +14,7 @@ namespace WcfLibrary.Application.Interfaces.InterfaceRepository
 
         // Obtener un autor por su ID
         // Devuelve null si no existe.
-        Author GetcById(int id_author);
+        Author GetById(int id_author);
 
         // Crear un nuevo autor en la base de datos.
         void CreateAuthor(Author author);

@@ -46,7 +46,17 @@
     <Compile Include="Interfaces\InterfaceRepository\IGenreRepository.cs" />
     <Compile Include="Interfaces\InterfaceRepository\ILoanRepository.cs" />
     <Compile Include="Interfaces\InterfaceRepository\IUserRepository.cs" />
+    <Compile Include="Interfaces\InterfaceService\IAuthorService.cs" />
+    <Compile Include="Interfaces\InterfaceService\IBookService.cs" />
+    <Compile Include="Interfaces\InterfaceService\IGenreService.cs" />
+    <Compile Include="Interfaces\InterfaceService\ILoanService.cs" />
+    <Compile Include="Interfaces\InterfaceService\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AuthorService.cs" />
+    <Compile Include="Services\BookService.cs" />
+    <Compile Include="Services\GenreService.cs" />
+    <Compile Include="Services\LoanService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WcfLibrary.Domain\WcfLibrary.Domain.csproj">
@@ -54,8 +64,6 @@
       <Name>WcfLibrary.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\InterfaceService\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
