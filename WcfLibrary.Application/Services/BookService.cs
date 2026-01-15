@@ -26,7 +26,7 @@ namespace WcfLibrary.Application.Services
 
         public int CreateBook(BookCreateDTO bookDTO)
         {
-            var exist = _bookRepository.SearchByTittle(bookDTO.title);
+            var exist = _bookRepository.SearchByTitle(bookDTO.title);
             if (exist != null) return 0;
 
             List<Author> authors = new List<Author>();
@@ -210,9 +210,9 @@ namespace WcfLibrary.Application.Services
             };
         }
 
-        public BookDTO SearchByTittle(string name)
+        public BookDTO SearchByTitle(string name)
         {
-            var book = _bookRepository.SearchByTittle(name);
+            var book = _bookRepository.SearchByTitle(name);
             if (book == null) return null;
             return new BookDTO
             {

@@ -18,7 +18,7 @@ namespace WcfLibrary.Application.Interfaces.InterfaceService
         bool DeleteBook(int id_book);
         IEnumerable<BookDTO> GetByAuthor(int id_author);
         IEnumerable<BookDTO> GetByGenre(int id_genre);
-        BookDTO SearchByTittle(string name);
+        BookDTO SearchByTitle(string name);
         bool GetAvailable(BookDTO bookDTO);
     }
 }

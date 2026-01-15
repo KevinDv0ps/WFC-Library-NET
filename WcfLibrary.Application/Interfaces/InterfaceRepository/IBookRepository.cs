@@ -32,6 +32,6 @@ namespace WcfLibrary.Application.Interfaces.InterfaceRepository
         IEnumerable<Book> GetByGenre(int id_genre);
 
         // Obtener libros por su título
-        Book SearchByTittle(string name);
+        Book SearchByTitle(string name);
     }
 }

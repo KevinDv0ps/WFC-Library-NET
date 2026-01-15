@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,19 +24,19 @@ namespace WcfLibrary.Infrastructure.Repository
             dataContextLibrary.SaveChanges();
         }
 
-        public async Task<IEnumerable<Author>> GetAsync()
+        public IEnumerable<Author> GetALL()
         {
-            return await dataContextLibrary.Authors.ToListAsync();
+            return dataContextLibrary.Authors.ToList();
         }
 
-        public async Task<Author?> GetAsyncById(int id_author)
+        public Author GetById(int id_author)
         {
-            return await dataContextLibrary.Authors.FindAsync(id_author);
+            return dataContextLibrary.Authors.Find(id_author);
         }
 
-        public async Task<IEnumerable<Author?>> SearchByNameAsync(string[] name)
+        public IEnumerable<Author> SearchByName(string[] name)
         {
-            return await dataContextLibrary.Authors
+            return dataContextLibrary.Authors
                 .Where(author =>
                     name.All(p =>
                         author.first_name.ToLower().Contains(p) ||
@@ -44,13 +45,13 @@ namespace WcfLibrary.Infrastructure.Repository
                         (author.second_lastname != null && author.second_lastname.ToLower().Contains(p))
                     )
                 )
-                .ToListAsync();
+                .ToList();
         }
 
-        public async Task UpdateAsync(Author author)
+        public void UpdateAuthor(Author author)
         {
-            dataContextLibrary.Authors.Update(author);
-            await dataContextLibrary.SaveChangesAsync();
+            dataContextLibrary.Authors.AddOrUpdate(author);
+            dataContextLibrary.SaveChangesAsync();
         }
 
     }
