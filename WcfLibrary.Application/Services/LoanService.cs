@@ -35,8 +35,8 @@ namespace WcfLibrary.Application.Services
 
             var loan = new Loan
             {
-                id_user = loanDTO.id_user,
-                id_book = loanDTO.id_book,
+                userId = loanDTO.id_user,
+                bookId = loanDTO.id_book,
                 loan_date = DateTime.Now,
                 due_date = DateTime.Now.AddDays(14),
                 is_return = false,
@@ -57,8 +57,8 @@ namespace WcfLibrary.Application.Services
             return loans.Select(loan => new LoanDTO
             {
                 id_loan = loan.id,
-                id_user = loan.id_user,
-                id_book = loan.id_book,
+                id_user = loan.userId,
+                id_book = loan.bookId,
                 loan_date = loan.loan_date,
                 due_date = loan.due_date,
                 return_date = loan.return_date,
@@ -72,8 +72,8 @@ namespace WcfLibrary.Application.Services
             return new LoanDTO
             {
                 id_loan = loan.id,
-                id_user = loan.id_user,
-                id_book = loan.id_book,
+                id_user = loan.userId,
+                id_book = loan.bookId,
                 loan_date = loan.loan_date,
                 due_date = loan.due_date,
                 return_date = loan.return_date,
@@ -87,8 +87,8 @@ namespace WcfLibrary.Application.Services
             return loans.Select(loan => new LoanDTO
             {
                 id_loan = loan.id,
-                id_user = loan.id_user,
-                id_book = loan.id_book,
+                id_user = loan.userId,
+                id_book = loan.bookId,
                 loan_date = loan.loan_date,
                 due_date = loan.due_date,
                 return_date = loan.return_date,
@@ -118,7 +118,7 @@ namespace WcfLibrary.Application.Services
             loan.is_return = true;
 
             loan.return_date = DateTime.Now;
-            var book = _bookRepository.GetById(loan.id_book);
+            var book = _bookRepository.GetById(loan.bookId);
 
             if (book == null) throw new Exception("Book does not exist");
             book.is_available = true;

@@ -25,14 +25,16 @@ namespace WcfLibrary.Infrastructure.Data
             // 1 Loan -> 1 Book (Book puede NO tener Loan)
             modelBuilder.Entity<Loan>()
                 .HasRequired(l => l.book)
-                .WithOptional(b => b.Loan)
-                .Map(m => m.MapKey("id_book"));
+                .WithMany()  // Relación de 1 a N, un Book puede tener varios Loans
+                .HasForeignKey(l => l.bookId)  // Usar `BookId` en lugar de `bookId`
+                .WillCascadeOnDelete(false);  // Opcional
 
             // N Loan -> 1 User
             modelBuilder.Entity<Loan>()
                 .HasRequired(l => l.user)
                 .WithMany(u => u.Loans)
-                .Map(m => m.MapKey("id_user"));
+                .HasForeignKey(l => l.userId)  // Usar `UserId` en lugar de `userId`
+                .WillCascadeOnDelete(false);  // Opcional
 
             // N Author -> N Book
             modelBuilder.Entity<Author>()
@@ -41,8 +43,8 @@ namespace WcfLibrary.Infrastructure.Data
                 .Map(m =>
                 {
                     m.ToTable("AuthorBooks");
-                    m.MapLeftKey("id_author");
-                    m.MapRightKey("id_book");
+                    m.MapLeftKey("AuthorId");  // Usar `AuthorId` en lugar de `authorId`
+                    m.MapRightKey("BookId");   // Usar `BookId` en lugar de `bookId`
                 });
 
             // N Genre -> N Book
@@ -52,11 +54,12 @@ namespace WcfLibrary.Infrastructure.Data
                 .Map(m =>
                 {
                     m.ToTable("GenreBooks");
-                    m.MapLeftKey("id_genre");
-                    m.MapRightKey("id_book");
+                    m.MapLeftKey("GenreId");   // Usar `GenreId` en lugar de `id_genre`
+                    m.MapRightKey("BookId");    // Usar `BookId` en lugar de `bookId`
                 });
 
             base.OnModelCreating(modelBuilder);
         }
+
     }
 }

@@ -9,8 +9,8 @@ namespace WcfLibrary.Domain.Entities
     public class Loan
     {
         public int id { get; set; }
-        public int id_book { get; set; } // FK
-        public int id_user { get; set; } // FK
+        public int bookId { get; set; } // FK
+        public int userId { get; set; } // FK
         public DateTime loan_date { get; set; }
         public DateTime due_date { get; set; }
         public DateTime? return_date { get; set; }

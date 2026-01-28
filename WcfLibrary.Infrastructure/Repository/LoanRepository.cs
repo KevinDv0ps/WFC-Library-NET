@@ -47,7 +47,7 @@ namespace WcfLibrary.Infrastructure.Repository
             return dataContextLibrary.Loans
                 .Include(b => b.book)
                 .Include(u => u.user)
-                .Where(a => a.id_user == id_user)
+                .Where(a => a.userId == id_user)
                 .ToList();
         }
 

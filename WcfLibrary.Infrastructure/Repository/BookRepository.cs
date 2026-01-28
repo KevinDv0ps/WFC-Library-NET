@@ -7,6 +7,7 @@ using WcfLibrary.Application.Interfaces.InterfaceRepository;
 using WcfLibrary.Domain.Entities;
 using System.Data.Entity;
 using WcfLibrary.Infrastructure.Data;
+using System.Data.Entity.Migrations;
 
 
 namespace WcfLibrary.Infrastructure.Repository

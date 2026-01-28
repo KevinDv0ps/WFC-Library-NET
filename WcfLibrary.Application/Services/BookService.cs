@@ -98,7 +98,7 @@ namespace WcfLibrary.Application.Services
                     id_loan = g.Loan.id,
                     loan_date = g.Loan.loan_date,
                     return_date = g.Loan.return_date,
-                    id_user = g.Loan.id_user,
+                    id_user = g.Loan.bookId,
                 } : null
             });
         }
@@ -134,7 +134,7 @@ namespace WcfLibrary.Application.Services
                     id_loan = g.Loan.id,
                     loan_date = g.Loan.loan_date,
                     return_date = g.Loan.return_date,
-                    id_user = g.Loan.id_user,
+                    id_user = g.Loan.userId,
                 } : null
             });
         }
@@ -169,7 +169,7 @@ namespace WcfLibrary.Application.Services
                     id_loan = g.Loan.id,
                     loan_date = g.Loan.loan_date,
                     return_date = g.Loan.return_date,
-                    id_user = g.Loan.id_user,
+                    id_user = g.Loan.userId,
                 } : null
             });
         }
@@ -205,7 +205,7 @@ namespace WcfLibrary.Application.Services
                     id_loan = book.Loan.id,
                     loan_date = book.Loan.loan_date,
                     return_date = book.Loan.return_date,
-                    id_user = book.Loan.id_user,
+                    id_user = book.Loan.userId,
                 } : null
             };
         }
@@ -241,7 +241,7 @@ namespace WcfLibrary.Application.Services
                     id_loan = book.Loan.id,
                     loan_date = book.Loan.loan_date,
                     return_date = book.Loan.return_date,
-                    id_user = book.Loan.id_user,
+                    id_user = book.Loan.userId,
                 } : null
             };
         }
